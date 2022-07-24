@@ -1,0 +1,212 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.App {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.dark {
+    background-color: #19202e;
+    .container {
+      .select-box {
+        background-color: #1f2936;
+        select {
+          background: #111826;
+          color: rgba(255, 255, 255, 0.548);
+          border: 1px solid rgba(210, 219, 229, 0.568);
+        }
+      }
+      .day-boxes {
+        .day-box {
+          background-color: #111826;
+          color: rgba(255, 255, 255, 0.596);
+          &:hover {
+            color: #fff;
+          }
+        }
+        .current-day-box {
+          color: rgba(255, 255, 255, 0.849);
+          .onceTemp {
+            .weather-inner {
+              strong {
+                color: #04a5e9;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.container {
+  max-width: 820px;
+  // max-height: 205px;
+  width: 100%;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  .select-box {
+    background-color: #f6fafd;
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    select {
+      border: 1px solid #d2dbe5;
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 7.5px;
+      outline: none;
+      &:focus {
+        border-color: #8cb6e5;
+      }
+    }
+    button {
+      width: 34px;
+      height: 34px;
+      background: none;
+      border: 1px solid #d2dbe5;
+      border-radius: 100%;
+      cursor: pointer;
+      position: relative;
+      transition: all, 500ms, ease-in-out;
+      &:hover {
+        border: 1px solid #8cb6e7;
+      }
+      img {
+        height: auto;
+        max-width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: all, 500ms, ease-in-out;
+      }
+    }
+  }
+  .day-boxes {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: 100%;
+    margin-top: 15px;
+    gap: 10px;
+    row-gap: 15px;
+    .current-day-box {
+      grid-row-start: 1;
+      grid-row-end: 3;
+      border-radius: 6px;
+      border: 1px solid #d2dbe5;
+      width: 180px;
+      cursor: pointer;
+      padding: 15px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      .onceTitle {
+        font-size: 17px;
+        font-weight: 600;
+      }
+      .onceImage {
+        img {
+          height: 100%;
+          height: 100px;
+          transition: transform 0.5s;
+        }
+      }
+      .onceTemp {
+        margin-bottom: 15px;
+        .weather-inner {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          strong {
+            padding: 0 30px 20px 30px;
+            font-weight: bolder;
+            font-size: 25px;
+            display: block;
+          }
+          span {
+            font-size: 25px;
+          }
+        }
+      }
+      .onceHumidty {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        border-top: 1px solid #ddd;
+        margin-top: 10px;
+        div {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+      }
+    }
+    .day-box {
+      border-radius: 6px;
+      cursor: pointer;
+      align-items: center;
+      color: #b6b6b6;
+      display: flex;
+      flex: 1 1;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      font-weight: 600;
+      padding: 15px 0;
+      border: 1px solid #d2dbe5;
+      .day-img {
+        width: 100%;
+        max-width: 80px;
+        transition: transform 0.5s;
+      }
+      .day-deg {
+        text-align: center;
+        span {
+          display: block;
+          &.tmp-text {
+            font-weight: normal;
+            font-size: 13px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+      &:hover {
+        color: #797979;
+        .day-img {
+          transform: scale(1.2);
+          transition: transform 0.5s;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
