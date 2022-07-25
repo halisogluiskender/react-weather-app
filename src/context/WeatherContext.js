@@ -11,8 +11,8 @@ const initialValue = {
   region: "Marmara"
 };
 const api = {
-  key: "b322418ce5803ec993110436de8bce22",
-  base: "https://api.openweathermap.org/data/2.5/"
+  key: process.env.REACT_APP_API_KEY,
+  base: process.env.REACT_APP_API_BASE
 };
 const WeatherContext = createContext();
 export const WeatherProvider = ({ children }) => {
