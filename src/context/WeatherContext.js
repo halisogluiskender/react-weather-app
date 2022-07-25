@@ -43,6 +43,7 @@ export const WeatherProvider = ({ children }) => {
     };
     getWeatherData();
     getOneCity();
+    localStorage.setItem("isDark", isDark);
   }, [city, isDark]);
 
   const days = {
